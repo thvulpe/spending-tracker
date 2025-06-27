@@ -7,6 +7,8 @@ const TransactionList = () => {
 
     if (!filteredTransactions) return <p>Loading...</p>;
 
+    filteredTransactions.sort((a, b) => new Date(a.date) - new Date(b.date));
+
     return (
         <div className="transaction-list">
             <div className="transaction-list-title">
