@@ -2,25 +2,157 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
 .transaction-list-title {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 40px;
+    gap: 12px;
     width: 800px;
-    background-color: #ffe8d6;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: small;
+    background-color: #ffdab9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    border-radius: 12px;
 }
 
 .transaction-preview {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 40px;
+    gap: 12px;
     width: 800px;
-    font-size: small;
-    background-color: #ffe8d6;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    background-color: #fff5ee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     margin-top: 10px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transaction-preview:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.trash-button {
+    background-color: #ff7f50;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    padding: 0;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.trash-button:hover {
+    background-color: #ff5533;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.trash-button:active {
+    transform: scale(0.95);
+    background-color: #e6451b;
+}
+
+.trash-button img {
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+}
+
+.filter-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 600px;
+    flex-wrap: wrap;
+}
+
+.filter-selector select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    min-width: 150px;
+}
+
+.filter-selector select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.filter-selector option {
+    padding: 0.3rem;
+}
+
+.add-transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-transaction-form input,
+.add-transaction-form select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.add-transaction-form input:focus,
+.add-transaction-form select:focus {
+    border-color: #ff7f50;
+    outline: none;
+}
+
+.add-transaction-form button {
+    padding: 0.75rem;
+    background-color: #ff7f50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-transaction-form button:hover {
+    background-color: #e6683c;
 }

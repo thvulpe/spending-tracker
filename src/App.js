@@ -1,5 +1,6 @@
 import './App.css';
-import FilterSelector from './components/FilterSelector';
+import DateFilterSelector from './components/DateFilterSelector';
+import TransactionAdder from './components/TransactionAdder';
 import TransactionList from './components/TransactionList';
 import { TransactionProvider } from './context/TransactionContext';
 
@@ -7,7 +8,8 @@ function App() {
   return (
     <div className="App">
       <TransactionProvider>
-        <FilterSelector />
+        <DateFilterSelector />
+        <TransactionAdder />
         <TransactionList />
       </TransactionProvider>
     </div>

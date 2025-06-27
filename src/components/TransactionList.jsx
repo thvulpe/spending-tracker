@@ -10,10 +10,10 @@ const TransactionList = () => {
     return (
         <div className="transaction-list">
             <div className="transaction-list-title">
-                <h2>ID</h2>
                 <h2>Retailer</h2>
                 <h2>Amount</h2>
                 <h2>Date</h2>
+                <h2>Actions</h2>
             </div>
             {filteredTransactions.map((transaction) => {
                 return (
