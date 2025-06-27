@@ -1,4 +1,5 @@
 import './App.css';
+import FilterSelector from './components/FilterSelector';
 import TransactionList from './components/TransactionList';
 import { TransactionProvider } from './context/TransactionContext';
 
@@ -6,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <TransactionProvider>
-        <h1>hi there</h1>
+        <FilterSelector />
         <TransactionList />
       </TransactionProvider>
     </div>

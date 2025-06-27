@@ -1,0 +1,26 @@
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transaction-list-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    width: 800px;
+    background-color: #ffe8d6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: small;
+}
+
+.transaction-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    width: 800px;
+    font-size: small;
+    background-color: #ffe8d6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}

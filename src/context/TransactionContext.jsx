@@ -4,6 +4,7 @@ export const TransactionContext = createContext();
 
 export const TransactionProvider = ({children}) => {
     const [transactions, setTransactions] = useState(null);
+    const [filteredTransactions, setFilteredTransactions] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:8000/transactions')
@@ -12,11 +13,12 @@ export const TransactionProvider = ({children}) => {
         })
         .then(data => {
             setTransactions(data);
+            setFilteredTransactions(data);
         });
     }, []);
 
     return (
-        <TransactionContext.Provider value={{transactions}}>
+        <TransactionContext.Provider value={{filteredTransactions, setFilteredTransactions, transactions, setTransactions}}>
             {children}
         </TransactionContext.Provider>
     );
