@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <Header />
       <TransactionProvider>
-        <DateFilterSelector />
         <TransactionAdder />
+        <DateFilterSelector />
         <TransactionList />
       </TransactionProvider>
       <Footer />

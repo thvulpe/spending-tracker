@@ -1,0 +1,34 @@
+.filter-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 600px;
+    flex-wrap: wrap;
+}
+
+.filter-selector select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    min-width: 150px;
+}
+
+.filter-selector select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.filter-selector option {
+    padding: 0.3rem;
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
+import './DateFilterSelector.css';
 
 const FilterSelector = () => {
     const { transactions, setFilteredTransactions } = useContext(TransactionContext);

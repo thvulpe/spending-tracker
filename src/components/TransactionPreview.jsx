@@ -1,6 +1,7 @@
 import { TransactionContext } from '../context/TransactionContext';
 import trashIcon from '../icons/trash.png';
 import { useContext } from 'react';
+import './TransactionPreview.css';
 
 const TransactionPreview = ({transaction}) => {
     const {transactions, setTransactions} = useContext(TransactionContext);

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import TransactionPreview from "./TransactionPreview";
+import './TransactionList.css';
 
 const TransactionList = () => {
     const { filteredTransactions } = useContext(TransactionContext);

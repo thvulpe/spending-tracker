@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
+import './TransactionAdder.css';
 
 const TransactionAdder = () => {
     const [retailer, setRetailer] = useState("");
