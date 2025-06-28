@@ -6,6 +6,19 @@ A simple **React** app to manage your expenses. You can add, delete, and filter 
 
 ---
 
+## 📸 Screenshots
+
+### 💼 Transaction List
+![Transaction list](public/screenshots/transactions.png)
+
+### 📊 Spending Chart
+![Spending chart](public/screenshots/chart.png)
+
+### ➕ Add Transaction
+![Spending chart](public/screenshots/transaction-adder.png)
+
+---
+
 ## 🛠️ Technologies Used
 
 - **React** (with [React Router](https://reactrouter.com/) for routing)
