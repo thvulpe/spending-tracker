@@ -16,7 +16,7 @@ const TransactionPreview = ({transaction}) => {
     return (
         <div className="transaction-preview">
             <div className='cell'>{transaction.retailer}</div>
-            <div className='cell'>{transaction.amount}</div>
+            <div className='cell'>{Number(transaction.amount).toFixed(2)}</div>
             <div className='cell'>{transaction.date}</div>
             <button className='trash-button' onClick={() => {deleteHandler(transaction)}}>
                 <img src={trashIcon} alt="trash bin" />

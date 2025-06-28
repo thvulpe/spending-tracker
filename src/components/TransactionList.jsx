@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import TransactionPreview from "./TransactionPreview";
 import './TransactionList.css';
+import TotalSpent from "./TotalSpent";
 
 const TransactionList = () => {
     const { filteredTransactions } = useContext(TransactionContext);
@@ -23,6 +24,7 @@ const TransactionList = () => {
                     <TransactionPreview key={transaction.id} transaction={transaction} />
                 );
             })}
+            <TotalSpent />
         </div>
     );
 }
