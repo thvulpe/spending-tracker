@@ -1,6 +1,7 @@
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ScrollIndicator from './components/ScrollIndicator';
 import Graph from './pages/Graph';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -17,6 +18,7 @@ function App() {
           </Routes>
         </div>
         <Footer />
+        <ScrollIndicator />
       </div>
     </Router>
   );

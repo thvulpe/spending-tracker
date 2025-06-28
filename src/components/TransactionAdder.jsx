@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import './TransactionAdder.css';
 
@@ -6,30 +6,30 @@ const TransactionAdder = () => {
     const [retailer, setRetailer] = useState("");
     const [amount, setAmount] = useState("");
 
-    const {transactions, setTransactions} = useContext(TransactionContext);
-    
+    const { transactions, setTransactions } = useContext(TransactionContext);
+
     // year
     const currentYear = new Date().getFullYear();
     const [selectedYear, setSelectedYear] = useState(currentYear);
-    
+
     const handleChangeYear = (e) => {
         setSelectedYear(Number(e.target.value));
     };
-    
+
     const years = [];
     for (let year = currentYear; year >= 2000; year--) {
         years.push(year);
     }
-    
+
     // month
     const currentMonth = new Date().getMonth();
-    
+
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
-    
+
     const handleChangeMonth = (e) => {
         setSelectedMonth(Number(e.target.value));
     };
-    
+
     const months = [];
     for (let month = 0; month <= 11; month++) {
         months.push(month);
@@ -37,18 +37,18 @@ const TransactionAdder = () => {
 
     // day
     const currentDay = new Date().getDate();
-    
+
     const [selectedDay, setSelectedDay] = useState(currentDay);
-    
+
     const handleChangeDay = (e) => {
         setSelectedDay(Number(e.target.value));
     };
-    
+
     const days = [];
     for (let day = 1; day <= 31; day++) {
         days.push(day);
     }
-    
+
     const getMonthLabel = (month) => {
         switch (month) {
             case 0: return "January";
@@ -71,7 +71,7 @@ const TransactionAdder = () => {
         e.preventDefault();
         let lastID = 1;
         if (transactions)
-            lastID = Number(transactions.at(-1).id)+1;
+            lastID = Number(transactions.at(-1).id) + 1;
         const transactionToAdd = {
             id: lastID,
             retailer: retailer,
@@ -80,7 +80,7 @@ const TransactionAdder = () => {
         }
         setTransactions([...transactions, transactionToAdd]);
     }
-    
+
     return (
         <form className="add-transaction-form" onSubmit={handleSubmit}>
             <input

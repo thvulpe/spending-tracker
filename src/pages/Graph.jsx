@@ -1,6 +1,15 @@
+import TransactionChart from "../components/TransactionChart";
+import { TransactionProvider } from "../context/TransactionContext";
+import './Graph.css';
+
 const Graph = () => {
     return (
-        <h1>This is gonna be a graph</h1>
+        <div className="graph">
+            <p>Monthly expenses (current year):</p>
+            <TransactionProvider>
+                <TransactionChart />
+            </TransactionProvider>
+        </div>
     );
 }
 

@@ -1,0 +1,15 @@
+.graph {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.graph p {
+    margin-left: 5%;
+    font-weight: bold;
+    background-color: antiquewhite;
+    padding: 10px;
+}
