@@ -1,22 +1,24 @@
 import './App.css';
-import DateFilterSelector from './components/DateFilterSelector';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import TransactionAdder from './components/TransactionAdder';
-import TransactionList from './components/TransactionList';
-import { TransactionProvider } from './context/TransactionContext';
+import Graph from './pages/Graph';
+import Home from './pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <TransactionProvider>
-        <TransactionAdder />
-        <DateFilterSelector />
-        <TransactionList />
-      </TransactionProvider>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <div className='content'>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/graph' element={<Graph />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
