@@ -21,7 +21,7 @@ A simple **React** app to manage your expenses. You can add, delete, and filter 
 
 ## 🛠️ Technologies Used
 
-- **React** (with [React Router](https://reactrouter.com/) for routing)
+- **React**
 - **CSS** – custom styling
 
 ---
