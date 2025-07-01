@@ -4,21 +4,26 @@ import Header from './components/Header';
 import Graph from './pages/Graph';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <div className='content'>
-          <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route path='/graph' element={<Graph />} />
-          </Routes>
+    <>
+      <Router>
+        <div className="App">
+          <Header />
+          <div className='content'>
+            <Routes>
+              <Route exact path='/' element={<Home />} />
+              <Route path='/graph' element={<Graph />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+
+      <Analytics />
+    </>
   );
 }
 
