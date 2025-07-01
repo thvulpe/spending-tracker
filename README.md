@@ -38,3 +38,9 @@ A simple **React** app to manage your expenses. You can add, delete, and filter 
 ## 🧑‍💻 Author
 
 Built by Theodor Vulpe - CS student @ UPB
+
+---
+
+## 🪪 License
+
+This project is open-source and available under the MIT License.
