@@ -67,19 +67,40 @@ const TransactionAdder = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        let lastID = 1;
-        if (transactions)
-            lastID = Number(transactions.at(-1).id) + 1;
+
         const transactionToAdd = {
-            id: lastID,
             retailer: retailer,
-            amount: amount,
-            date: new Date(selectedYear, selectedMonth, selectedDay).toLocaleDateString('en-CA').slice(0, 10)
+            amount: Number(amount),
+            date: new Date(selectedYear, selectedMonth, selectedDay)
+        };
+
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/transactions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                },
+                body: JSON.stringify(transactionToAdd)
+            });
+
+            if (!response.ok) throw new Error("Failed to add transaction");
+
+            const data = await response.json();
+            data.date = new Date(data.date);
+            setTransactions([...transactions, data]);
+
+            // reset form
+            setRetailer("");
+            setAmount("");
+        } catch (err) {
+            console.error(err);
+            alert("Failed to add transaction");
         }
-        setTransactions([...transactions, transactionToAdd]);
-    }
+    };
+
 
     return (
         <form className="add-transaction-form" onSubmit={handleSubmit}>

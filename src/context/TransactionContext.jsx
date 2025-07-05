@@ -1,76 +1,58 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const TransactionContext = createContext();
 
 export const TransactionProvider = ({ children }) => {
-    const [transactions, setTransactions] = useState([
-        {
-            id: 1,
-            retailer: "ShopEasy",
-            amount: 56.40,
-            date: "2024/03/15"
-        },
-        {
-            id: 2,
-            retailer: "TechZone",
-            amount: 210.99,
-            date: "2024/11/22"
-        },
-        {
-            id: 3,
-            retailer: "FurniWorld",
-            amount: 134.50,
-            date: "2025/01/08"
-        },
-        {
-            id: 4,
-            retailer: "GroceryLand",
-            amount: 78.30,
-            date: "2025/06/11"
-        },
-        {
-            id: 5,
-            retailer: "DailyMart",
-            amount: 89.99,
-            date: "2024/07/03"
-        },
-        {
-            id: 6,
-            retailer: "BeautyBox",
-            amount: 27.45,
-            date: "2025/05/29"
-        },
-        {
-            id: 7,
-            retailer: "ActiveGear",
-            amount: 65.00,
-            date: "2024/09/18"
-        },
-        {
-            id: 8,
-            retailer: "FreshStop",
-            amount: 33.20,
-            date: "2025/04/14"
-        },
-        {
-            id: 9,
-            retailer: "StylePoint",
-            amount: 122.90,
-            date: "2024/12/06"
-        },
-        {
-            id: 10,
-            retailer: "UrbanCloset",
-            amount: 45.75,
-            date: "2025/02/21"
+  const [transactions, setTransactions] = useState([]);
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    // 🔐 verifică dacă tokenul este valid
+    if (!token?.trim()) {
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+      return;
+    }
+
+    fetch("http://localhost:8080/api/v1/transactions", {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    })
+      .then(res => {
+        if (res.status === 401 || res.status === 403) {
+          localStorage.removeItem("token");
+          window.location.href = "/login";
+          return null;
         }
-    ]);
+        return res.json();
+      })
+      .then(data => {
+        if (!data) return;
+        const transactionsWithDates = data.map(t => ({
+          ...t,
+          date: new Date(t.date)
+        }));
+        setTransactions(transactionsWithDates);
+        setFilteredTransactions(transactionsWithDates);
+      })
+      .catch(err => {
+        console.error("Failed to fetch transactions:", err);
+      });
+  }, []);
 
-    const [filteredTransactions, setFilteredTransactions] = useState([...transactions]);
-
-    return (
-        <TransactionContext.Provider value={{ filteredTransactions, setFilteredTransactions, transactions, setTransactions }}>
-            {children}
-        </TransactionContext.Provider>
-    );
-}
+  return (
+    <TransactionContext.Provider
+      value={{
+        transactions,
+        setTransactions,
+        filteredTransactions,
+        setFilteredTransactions
+      }}
+    >
+      {children}
+    </TransactionContext.Provider>
+  );
+};

@@ -6,24 +6,43 @@ import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/react"
 import { TransactionProvider } from './context/TransactionContext';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import RequireAuth from './components/RequireAuth';
 
 function App() {
   return (
     <>
-      <TransactionProvider>
-        <Router>
-          <div className="App">
-            <Header />
-            <div className='content'>
-              <Routes>
-                <Route exact path='/' element={<Home />} />
-                <Route path='/graph' element={<Graph />} />
-              </Routes>
-            </div>
-            <Footer />
+      <Router>
+        <div className="App">
+          <Header />
+
+          <div className='content'>
+            <Routes>
+              <Route path="/" element={
+                <RequireAuth>
+                  <TransactionProvider>
+                    <Home />
+                  </TransactionProvider>
+                </RequireAuth>
+              } />
+
+              <Route path="/graph" element={
+                <RequireAuth>
+                  <TransactionProvider>
+                    <Graph />
+                  </TransactionProvider>
+                </RequireAuth>
+              } />
+
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
+            </Routes>
           </div>
-        </Router>
-      </TransactionProvider>
+
+          <Footer />
+        </div>
+      </Router>
 
       <Analytics />
     </>
