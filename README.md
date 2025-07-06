@@ -32,6 +32,7 @@ A simple **React** app to manage your expenses. You can add, delete, and filter 
 - 🗑️ Delete existing transactions
 - 📅 Filter transactions by **year** and **month**
 - 📊 Visualize **spending chart** for the current year
+- 🔒 Authentication
 
 ---
 
