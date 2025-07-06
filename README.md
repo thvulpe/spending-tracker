@@ -28,7 +28,7 @@ A simple **React** app to manage your expenses. You can add, delete, and filter 
 
 ## ✨ Features
 
-- ➕ Add new transactions with amount, retailer, and date
+- ➕ Add new user-exclusive transactions with amount, retailer, and date
 - 🗑️ Delete existing transactions
 - 📅 Filter transactions by **year** and **month**
 - 📊 Visualize **spending chart** for the current year
