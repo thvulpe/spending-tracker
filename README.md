@@ -1,6 +1,6 @@
 # 💸 Spending Tracker
 
-A simple **React** app to manage your expenses. You can add, delete, and filter transactions, and view a chart showing your spending over the current year.
+A **full-stack** expense manager where users can add, delete, and filter transactions and visualize their spending across the year.
 
 🔗 [Live Demo](https://spending-tracker-green.vercel.app/)
 
@@ -21,8 +21,12 @@ A simple **React** app to manage your expenses. You can add, delete, and filter 
 
 ## 🛠️ Technologies Used
 
-- **React**
-- **CSS** – custom styling
+- **Java**
+- **Spring Boot**
+- **Spring Security**
+- **React.js**
+- **PostgreSQL**
+- **Docker**
 
 ---
 
