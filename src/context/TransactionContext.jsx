@@ -16,12 +16,15 @@ export const TransactionProvider = ({ children }) => {
       return;
     }
 
-    fetch("http://localhost:8080/api/v1/transactions", {
-      headers: {
-        "Authorization": "Bearer " + token
+    fetch(
+      "https://spending-tracker-backend-production.up.railway.app/:8080/api/v1/transactions",
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
       }
-    })
-      .then(res => {
+    )
+      .then((res) => {
         if (res.status === 401 || res.status === 403) {
           localStorage.removeItem("token");
           window.location.href = "/login";
@@ -29,16 +32,16 @@ export const TransactionProvider = ({ children }) => {
         }
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
         if (!data) return;
-        const transactionsWithDates = data.map(t => ({
+        const transactionsWithDates = data.map((t) => ({
           ...t,
-          date: new Date(t.date)
+          date: new Date(t.date),
         }));
         setTransactions(transactionsWithDates);
         setFilteredTransactions(transactionsWithDates);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Failed to fetch transactions:", err);
       });
   }, []);
@@ -49,7 +52,7 @@ export const TransactionProvider = ({ children }) => {
         transactions,
         setTransactions,
         filteredTransactions,
-        setFilteredTransactions
+        setFilteredTransactions,
       }}
     >
       {children}
