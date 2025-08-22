@@ -8,7 +8,7 @@ const TransactionPreview = ({ transaction }) => {
 
   const deleteHandler = (id) => {
     fetch(
-      `https://spending-tracker-backend-production.up.railway.app/:8080/api/v1/transactions/${id}`,
+      `https://spending-tracker-backend-production.up.railway.app/api/v1/transactions/${id}`,
       {
         method: "DELETE",
         headers: {

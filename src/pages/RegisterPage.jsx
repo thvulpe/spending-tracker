@@ -36,7 +36,7 @@ const RegisterPage = () => {
       setErrors(newErrors);
     } else {
       fetch(
-        "https://spending-tracker-backend-production.up.railway.app/:8080/api/auth/register",
+        "https://spending-tracker-backend-production.up.railway.app/api/auth/register",
         {
           method: "POST",
           headers: {

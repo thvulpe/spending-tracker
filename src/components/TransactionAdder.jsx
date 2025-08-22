@@ -91,7 +91,7 @@ const TransactionAdder = () => {
 
     try {
       const response = await fetch(
-        "https://spending-tracker-backend-production.up.railway.app/:8080/api/v1/transactions",
+        "https://spending-tracker-backend-production.up.railway.app/api/v1/transactions",
         {
           method: "POST",
           headers: {

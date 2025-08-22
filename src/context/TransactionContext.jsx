@@ -17,7 +17,7 @@ export const TransactionProvider = ({ children }) => {
     }
 
     fetch(
-      "https://spending-tracker-backend-production.up.railway.app/:8080/api/v1/transactions",
+      "https://spending-tracker-backend-production.up.railway.app/api/v1/transactions",
       {
         headers: {
           Authorization: "Bearer " + token,

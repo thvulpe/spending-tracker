@@ -35,7 +35,7 @@ const LoginPage = () => {
       setErrors(newErrors);
     } else {
       fetch(
-        "https://spending-tracker-backend-production.up.railway.app/:8080/api/auth/login",
+        "https://spending-tracker-backend-production.up.railway.app/api/auth/login",
         {
           method: "POST",
           headers: {
