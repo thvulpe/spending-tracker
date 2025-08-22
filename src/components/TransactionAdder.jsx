@@ -80,6 +80,13 @@ const TransactionAdder = () => {
     }
   };
 
+  const scrollToBottom = () => {
+    window.requestAnimationFrame(() => {
+      const doc = document.scrollingElement || document.documentElement;
+      window.scrollTo({ top: doc.scrollHeight, behavior: "smooth" });
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -107,6 +114,8 @@ const TransactionAdder = () => {
       const data = await response.json();
       data.date = new Date(data.date);
       setTransactions([...transactions, data]);
+
+      scrollToBottom();
 
       // reset form
       setRetailer("");
